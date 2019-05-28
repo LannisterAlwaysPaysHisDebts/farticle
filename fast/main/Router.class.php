@@ -1,6 +1,6 @@
 <?php
 /**
- * 配置文件使用
+ * 路由基础类
  *
  *
  */
@@ -8,10 +8,13 @@
 namespace Fast\Main;
 
 
-class Config
+class Router
 {
+    private static $request = [];
+
     private function __construct()
     {
+
     }
 
     public static function getInstance()
@@ -23,4 +26,5 @@ class Config
 
         return $object;
     }
+
 }

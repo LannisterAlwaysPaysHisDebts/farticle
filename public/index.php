@@ -2,6 +2,7 @@
 /**
  * api入口
  *
+ * api.myfarticle.com
  *
  */
 

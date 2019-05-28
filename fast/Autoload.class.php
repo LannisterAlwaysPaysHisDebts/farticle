@@ -8,14 +8,13 @@
 namespace Fast;
 
 
-
 use Fast\Main\Register;
 
 class Autoload
 {
-    protected static $classMap = [];
+    private static $classMap = [];
 
-    protected function __construct()
+    private function __construct()
     {
         spl_autoload_register([$this, 'autoload']);
     }
@@ -32,27 +31,21 @@ class Autoload
 
     public function autoload($class)
     {
-        /**
-         * namespace的命名规则:
-         *
-         * 1.首字母大写
-         *
-         */
+        // todo: 更灵活的配置
+        if (!isset(self::$classMap[$class])) {
+            $class = strtr($class, '\\', DIRECTORY_SEPARATOR);
 
-        var_dump($class);
-
-
-//        spl_autoload_register(function ($class) {
-//            static $class_map = [];
-//            $class = strtr($class, '\\', DIRECTORY_SEPARATOR);
-//            if (!isset($class_map[$class])) {
-//                $class_file = ROOT . $class . '.class.php';
-//                if (is_file($class_file)) {
-//                    require $class_file;
-//                }
-//                // 无论成功失败, 自动加载只进行一次
-//                $class_map[$class] = $class;
-//            }
-//        });
+            // class.php
+            $classPath = ROOT . $class . '.class.php';
+            if (is_file($classPath)) {
+                require $classPath;
+            } else {
+                $classPath = ROOT . $class . '.php';
+                if (is_file($classPath)) {
+                    require $classPath;
+                }
+            }
+            self::$classMap[$class];
+        }
     }
 }

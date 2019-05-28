@@ -1,27 +1,23 @@
-## 目录结构
+## 基本需求
+#### 后端：
+1.  搭建基本的框架：
+    - 支持路由，三个入口：api，admin与cli
+    - 请求处理层，令牌校验
+    - MVC的设计方式，前后端分离
+    - 灵活的配置文件与注册树
+    - 依赖注入实现
+    - 面向切面的日志系统与异常系统
+    - ORM
+    - 强大的命令行功能
+ 
+2. 基本的后台功能
+    - 支持markdown
 
-app: 项目目录
-config: 配置文件
-fast: 框架内核
-public: 入口文件与静态文件
-router: 路由配置
+3. 可以灵活切换主题的前端与后台
+    - 后台使用element-ui
+    - 前端文章页面先自己写一份
+    - 前后端完美支持移动端
 
-
-## nginx配置
-nginx配置中加入: 
-```
-location / {
-        try_files $uri $uri/ /index.php?$query_string;
-}
-```
-
-会将所有请求都转入 index.php中，然后php通过下面两个方法拿到请求参数
-```
-// 获取完整的请求路径
-$_SERVER['REQUEST_URI'];
-
-// 请求参数
-$_SERVER['QUERY_STRING']
-```
+4. 进阶:支持后端一键生成静态前端html文件
 
 
