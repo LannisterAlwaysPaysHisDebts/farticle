@@ -26,7 +26,7 @@ class Router
         $path = parse_url($_SERVER['REQUEST_URI'])['path'];
         if (!empty($path)) {
             $path = explode('/', $path);
-            $path = array_filter($path, function ($e){
+            $path = array_filter($path, function ($e) {
                 $e = empty($e) ? false : $e;
                 return $e;
             });
@@ -76,6 +76,18 @@ class Router
     }
 
     public function request()
+    {
+    }
+
+    public function obj()
+    {
+    }
+
+    /**
+     *
+     * @return string
+     */
+    public function objFunc()
     {
 
     }

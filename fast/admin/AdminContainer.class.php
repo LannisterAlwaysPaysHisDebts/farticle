@@ -15,7 +15,10 @@ class AdminContainer extends Container
 {
     public function run()
     {
-
+        $router = Register::getSys('Router');
+        $obj = new $router->obj();
+        $func = $router->objFunc();
+        $obj->$func;
     }
 
     public function loadConfig()
