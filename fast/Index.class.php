@@ -25,8 +25,9 @@ class Index
      */
     public function run(Container $container)
     {
+        $container->loadConfig();
         $this->router();
-
+        $container->run();
     }
 
     /**
@@ -38,8 +39,8 @@ class Index
         require __DIR__ . '/main/Register.class.php';
 
         define('FAST', __DIR__ . '/');
-        define('CONFIG', __DIR__ . '/../config');
         define('ROOT', dirname(__DIR__) . '/');
+        define('CONFIG', ROOT . 'config/');
     }
 
     /**
@@ -55,6 +56,6 @@ class Index
      */
     private function router()
     {
-        Router::getInstance();
+        $router = Router::getInstance();
     }
 }
