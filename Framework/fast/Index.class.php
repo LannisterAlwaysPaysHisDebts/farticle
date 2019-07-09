@@ -38,8 +38,8 @@ class Index
         require __DIR__ . '/Autoload.class.php';
         require __DIR__ . '/main/Register.class.php';
 
-        define('FAST', __DIR__ . '/');
-        define('ROOT', dirname(__DIR__) . '/');
+        define('FAST', __DIR__ . 'Index.class.php/');
+        define('ROOT', dirname(__DIR__) . 'Index.class.php/');
         define('CONFIG', ROOT . 'config/');
     }
 
