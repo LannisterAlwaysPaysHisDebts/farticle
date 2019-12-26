@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>PHP里的正则 | Sing with me</title>
+  <meta name="keywords" content=" PHP ">
+  <meta name="description" content="PHP里的正则 | Sing with me">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="https://github.com/LannisterAlwaysPaysHisDebts/farticle/2019/12/26/hello-world/">
+<meta property="og:site_name" content="Sing with me">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2019-12-26T07:48:09.106Z">
+<meta property="article:modified_time" content="2019-12-26T07:48:09.107Z">
+<meta property="article:author" content="Ricardo Cao">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/farticle/css/style.css?v=1.0.2" rel="stylesheet">
+
+<link href="/farticle/css/hl_theme/atom-light.css?v=1.0.2" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/farticle/js/jquery.autocomplete.min.js?v=1.0.2" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/farticle/js/iconfont.js?v=1.0.2" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="/farticle">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/farticle/" class="avatar_target">
+    <img class="avatar" src="/farticle/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Ricardo Cao</span>
+</div>
+
+<div class="icon">
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(2)</small></div></li>
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    </div>
+    <div></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="2">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color4">PHP</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/farticle/2019/12/26/PHP%E9%87%8C%E7%9A%84%E6%AD%A3%E5%88%99/"
+           data-tag="PHP"
+           data-author="" >
+            <span class="post-title" title="PHP里的正则">PHP里的正则</span>
+            <span class="post-date" title="2019-12-26 15:25:00">2019/12/26</span>
+        </a>
+        
+        <a  class=""
+           href="/farticle/2019/12/26/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2019-12-26 15:48:09">2019/12/26</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-PHP里的正则" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">PHP里的正则</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+        <span class="tag">
+            
+            <a class="color4">PHP</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-12-26 15:48:09'>2019-12-26 15:25</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一些常用的正则"><span class="toc-text">一些常用的正则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#php里的正则表达式"><span class="toc-text">php里的正则表达式</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>正则表达式实在是日常开发中常用的、必备的工具之一。由于初学时的不认真，实践过少，导致每次业务开发遇到正则的问题都需要回顾文档以及各种谷歌。这里先将日常业务逻辑开发时遇到的一些有关正则的问题记录下来，以备不时之需。</p>
+<blockquote>
+<p>正则表达式菜鸟教程： <a href="https://www.runoob.com/regexp/regexp-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/regexp/regexp-tutorial.html</a><br>正则表达式工具以及一些常用的表达式： <a href="https://c.runoob.com/front-end/854" target="_blank" rel="noopener">https://c.runoob.com/front-end/854</a></p>
+</blockquote>
+<h1 id="一些常用的正则"><a href="#一些常用的正则" class="headerlink" title="一些常用的正则"></a>一些常用的正则</h1><ol>
+<li><p>匹配所有: <code>([\s\S]*)</code></p>
+</li>
+<li><p>匹配以xx开头，而xx不在其中：<code>(?&lt;=pattern)</code> </p>
+</li>
+<li><p>匹配以xx结尾，而xx不在其中：<code>(?=pattern)</code></p>
+</li>
+<li><p>匹配不以xx开头的：<code>(?&lt;!pattern)</code></p>
+</li>
+<li><p>匹配不以xx结尾：<code>(?!pattern)</code></p>
+</li>
+<li><p>匹配数字，字母，汉字:  <code>[A-Za-z0-9\u4e00-\u9fa5]</code></p>
+<p> <strong><em>ps:</em></strong> 在php里面的正则是: <code>[A-Za-z0-9\x{4e00}-\x{9fa5}]</code>特别注意，php里面匹配汉字需要在分隔符里面加u,如：匹配数字字母汉字1次以上:<code>#[A-Za-z0-9\x{4e00}-\x{9fa5}]{1,}#u</code></p>
+</li>
+</ol>
+<h1 id="php里的正则表达式"><a href="#php里的正则表达式" class="headerlink" title="php里的正则表达式"></a>php里的正则表达式</h1><ol>
+<li><p>matches左右用‘#’包含起来，比如: <code>preg_match(&#39;#(foo)(bar)(baz)#&#39;, &#39;foobarbaz&#39;, $matches, PREG_OFFSET_CAPTURE);</code></p>
+</li>
+<li><p>unicode编码的数据，比如：<code>\u003d</code>，在php的pattern中需要改为：<code>\x{003d}</code></p>
+</li>
+<li><p>在php的pattern中‘\’是pattern这个字符串的转义字符，“\”则是正则表达式的“\”，所以如果想匹配一个反斜杠“\”，就需要：<code>\\\\</code> 四个反斜杠</p>
+</li>
+<li><p>使用<code>preg_replace</code> 替换: </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">preg_replace(&quot;#(?&lt;&#x3D;[a-zA-z])*(\d+)(?&#x3D;[a-zA-Z])#&quot;, &#39;&lt;\1&gt;&#39;, &#39;aaa55555bbb&#39;);</span><br></pre></td></tr></table></figure>
+<p> 其中, \1 代表被匹配的内容, 这里会将55555替换为: &lt;55555&gt;</p>
+</li>
+</ol>
+
+      
+       
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="/farticle/js/jquery.pjax.js?v=1.0.2" ></script>
+
+<script src="/farticle/js/script.js?v=1.0.2" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#PHP',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

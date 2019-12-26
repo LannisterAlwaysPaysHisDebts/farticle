@@ -3,3 +3,5 @@
 package-lock.json
 package.json
 db.json
+/hexo/
+hexo/themes/3-hexo
