@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>PHP里的正则 | 愚者小白</title>
+  <title>PHP里的匿名函数 | 愚者小白</title>
   <meta name="keywords" content=" PHP ">
-  <meta name="description" content="PHP里的正则 | 愚者小白">
+  <meta name="description" content="PHP里的匿名函数 | 愚者小白">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="composer安装composer require PHPExcel 基本操作1234567891011121314&#x2F;&#x2F; 创建实例$excel &#x3D; new PHPExcel();&#x2F;&#x2F; 设置当前sheet为0 也就是第一个sheet$excel-&gt;setActiveSheetIndex(0);&#x2F;&#x2F; 设置sheet标题$ex">
 <meta property="og:type" content="article">
@@ -170,9 +170,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-PHP里的正则" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-PHP里的匿名函数" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">PHP里的正则</h1>
+        <h1 class="article-title">PHP里的匿名函数</h1>
     
     <div class="article-meta">
         
@@ -188,7 +188,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-26 16:01:57'>2019-12-26 16:01</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-30 16:25:13'>2019-10-24 12:10</time>
         
     </div>
     <div class="article-meta">
@@ -199,7 +199,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一些常用的正则"><span class="toc-text">一些常用的正则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#php里的正则表达式"><span class="toc-text">php里的正则表达式</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#php中的匿名函数："><span class="toc-text">php中的匿名函数：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Closure类"><span class="toc-text">Closure类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与匿名函数常搭配的方法："><span class="toc-text">与匿名函数常搭配的方法：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#匿名函数的实际应用"><span class="toc-text">匿名函数的实际应用</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -215,35 +215,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>正则表达式实在是日常开发中常用的、必备的工具之一。由于初学时的不认真，实践过少，导致每次业务开发遇到正则的问题都需要回顾文档以及各种谷歌。这里先将日常业务逻辑开发时遇到的一些有关正则的问题记录下来，以备不时之需。</p>
+        <h1 id="php中的匿名函数："><a href="#php中的匿名函数：" class="headerlink" title="php中的匿名函数："></a>php中的匿名函数：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    function ($e)</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F; todo </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Closure类"><a href="#Closure类" class="headerlink" title="Closure类"></a>Closure类</h2><p>在php中，创建一个匿名函数相当于实例化Closure类。因此判断某个变量是否是匿名函数可以用<code>$func instanceof Closure</code></p>
+<p>Closure类有两个方法：<code>Closure-&gt;bindTo()</code>和<code>Closure::bind()</code> </p>
 <blockquote>
-<p>正则表达式菜鸟教程： <a href="https://www.runoob.com/regexp/regexp-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/regexp/regexp-tutorial.html</a><br>正则表达式工具以及一些常用的表达式： <a href="https://c.runoob.com/front-end/854" target="_blank" rel="noopener">https://c.runoob.com/front-end/854</a></p>
+<p>这两个方法功能是一样的，只是一个是静态一个是动态。 php文档：<a href="https://www.php.net/manual/zh/closure.bindto.php" target="_blank" rel="noopener">https://www.php.net/manual/zh/closure.bindto.php</a></p>
 </blockquote>
-<h1 id="一些常用的正则"><a href="#一些常用的正则" class="headerlink" title="一些常用的正则"></a>一些常用的正则</h1><ol>
-<li><p>匹配所有: <code>([\s\S]*)</code></p>
-</li>
-<li><p>匹配以xx开头，而xx不在其中：<code>(?&lt;=pattern)</code> </p>
-</li>
-<li><p>匹配以xx结尾，而xx不在其中：<code>(?=pattern)</code></p>
-</li>
-<li><p>匹配不以xx开头的：<code>(?&lt;!pattern)</code></p>
-</li>
-<li><p>匹配不以xx结尾：<code>(?!pattern)</code></p>
-</li>
-<li><p>匹配数字，字母，汉字:  <code>[A-Za-z0-9\u4e00-\u9fa5]</code></p>
-<p> <strong><em>ps:</em></strong> 在php里面的正则是: <code>[A-Za-z0-9\x{4e00}-\x{9fa5}]</code>特别注意，php里面匹配汉字需要在分隔符里面加u,如：匹配数字字母汉字1次以上:<code>#[A-Za-z0-9\x{4e00}-\x{9fa5}]{1,}#u</code></p>
+<p><strong>注意， bindTo($obj, $obj)两个参数，如果第二个参数不传，则无法调用绑定类受保护的成员变量与方法</strong></p>
+<h2 id="与匿名函数常搭配的方法："><a href="#与匿名函数常搭配的方法：" class="headerlink" title="与匿名函数常搭配的方法："></a>与匿名函数常搭配的方法：</h2><ol>
+<li>判断是否是匿名函数：<code>$func instanceof Closure</code></li>
+<li>判断是否可以调用：<code>is_callable($func)</code></li>
+<li>以变量的形式调用匿名函数，这种形式可以不需要考虑匿名函数的参数个数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function display(Closure $func, ...$params)</span><br><span class="line">&#123;</span><br><span class="line">    return call_user_func($func, ...$params)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 </li>
 </ol>
-<h1 id="php里的正则表达式"><a href="#php里的正则表达式" class="headerlink" title="php里的正则表达式"></a>php里的正则表达式</h1><ol>
-<li><p>matches左右用‘#’包含起来，比如: <code>preg_match(&#39;#(foo)(bar)(baz)#&#39;, &#39;foobarbaz&#39;, $matches, PREG_OFFSET_CAPTURE);</code></p>
+<h1 id="匿名函数的实际应用"><a href="#匿名函数的实际应用" class="headerlink" title="匿名函数的实际应用"></a>匿名函数的实际应用</h1><ol>
+<li><p>filter 通过传入匿名函数来对某个参数进行判断，如<code>array_map(); array_filter()</code></p>
 </li>
-<li><p>unicode编码的数据，比如：<code>\u003d</code>，在php的pattern中需要改为：<code>\x{003d}</code></p>
+<li><p>成员变量加工：<br> 用来测试的类User</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class UserModel</span><br><span class="line">&#123;</span><br><span class="line">    use DisplayFunc;</span><br><span class="line"></span><br><span class="line">    private $name;</span><br><span class="line">    private $age;</span><br><span class="line"></span><br><span class="line">    public function __construct($name, $age)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;name &#x3D; $name;</span><br><span class="line">        $this-&gt;age &#x3D; $age;</span><br><span class="line">    &#125;</span><br><span class="line">    public function growUp()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;age +&#x3D; 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 加工类： <strong>displayFunc</strong>  </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">trait DisplayFunc</span><br><span class="line">&#123;</span><br><span class="line">    public function display(Closure $func, ...$params)</span><br><span class="line">    &#123;</span><br><span class="line">        $call &#x3D; $func-&gt;bindTo($this, $this);</span><br><span class="line">        return call_user_func($call, ...$params);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function __set($name, Closure $value)</span><br><span class="line">    &#123;</span><br><span class="line">        $result &#x3D; is_callable($value)</span><br><span class="line">            ? $value-&gt;bindTo($this, $this)</span><br><span class="line">            : $value;</span><br><span class="line"></span><br><span class="line">        $this-&gt;$name &#x3D; call_user_func($result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 用法：</p>
+<ol>
+<li><p>__set, 创建一个不存在的成员变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$obj &#x3D; new UserModel(&quot;张三&quot;, 18);</span><br><span class="line">$obj-&gt;brith &#x3D; function () &#123;</span><br><span class="line">    return (int)date(&#39;Y&#39;) - $this-&gt;age;</span><br><span class="line">&#125;;</span><br><span class="line">var_dump($obj-&gt;brith);  &#x2F;&#x2F; 返回出生年： 2019 - 18 &#x3D; 2001</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在php的pattern中‘\’是pattern这个字符串的转义字符，“\”则是正则表达式的“\”，所以如果想匹配一个反斜杠“\”，就需要：<code>\\\\</code> 四个反斜杠</p>
-</li>
-<li><p>使用<code>preg_replace</code> 替换: </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">preg_replace(&quot;#(?&lt;&#x3D;[a-zA-z])*(\d+)(?&#x3D;[a-zA-Z])#&quot;, &#39;&lt;\1&gt;&#39;, &#39;aaa55555bbb&#39;);</span><br></pre></td></tr></table></figure>
-<p> 其中, \1 代表被匹配的内容, 这里会将55555替换为: &lt;55555&gt;</p>
+<li><p>display(), 执行一个匿名函数，可以调用该方法的成员变量与成员方法。 <strong>注意DisplayFunc类中的bindTo一定要传第二个参数<code>$this</code>，否则无法调用私有变量</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$obj &#x3D; new UserModel(&quot;张三&quot;, 18);</span><br><span class="line">$res &#x3D; $obj-&gt;display(function ()&#123;</span><br><span class="line">    $this-&gt;growUp();</span><br><span class="line">    return $this-&gt;name . &#39;的年龄是: &#39; . $this-&gt;age;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ol>
 </li>
 </ol>
 

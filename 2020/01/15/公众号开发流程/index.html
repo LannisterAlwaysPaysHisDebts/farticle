@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>PHP里的正则 | 愚者小白</title>
-  <meta name="keywords" content=" PHP ">
-  <meta name="description" content="PHP里的正则 | 愚者小白">
+  <title>公众号开发流程 | 愚者小白</title>
+  <meta name="keywords" content=" 微信公众号 ">
+  <meta name="description" content="公众号开发流程 | 愚者小白">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="composer安装composer require PHPExcel 基本操作1234567891011121314&#x2F;&#x2F; 创建实例$excel &#x3D; new PHPExcel();&#x2F;&#x2F; 设置当前sheet为0 也就是第一个sheet$excel-&gt;setActiveSheetIndex(0);&#x2F;&#x2F; 设置sheet标题$ex">
 <meta property="og:type" content="article">
@@ -170,9 +170,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-PHP里的正则" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-公众号开发流程" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">PHP里的正则</h1>
+        <h1 class="article-title">公众号开发流程</h1>
     
     <div class="article-meta">
         
@@ -181,14 +181,14 @@
         
         <span class="tag">
             
-            <a class="color4">PHP</a>
+            <a class="color1">微信公众号</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-26 16:01:57'>2019-12-26 16:01</time>
+        创建时间:<time class="date" title='更新时间: 2020-01-16 11:18:04'>2020-01-15 14:25</time>
         
     </div>
     <div class="article-meta">
@@ -199,7 +199,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一些常用的正则"><span class="toc-text">一些常用的正则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#php里的正则表达式"><span class="toc-text">php里的正则表达式</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#公众号的设置"><span class="toc-text">公众号的设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器配置："><span class="toc-text">服务器配置：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取AccessToken的ip白名单"><span class="toc-text">获取AccessToken的ip白名单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取关注用户信息的jsSDK安全域名"><span class="toc-text">获取关注用户信息的jsSDK安全域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#secret"><span class="toc-text">secret</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关注推送"><span class="toc-text">关注推送</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发送消息-图片"><span class="toc-text">发送消息&#x2F;图片</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文档："><span class="toc-text">文档：</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -215,37 +215,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>正则表达式实在是日常开发中常用的、必备的工具之一。由于初学时的不认真，实践过少，导致每次业务开发遇到正则的问题都需要回顾文档以及各种谷歌。这里先将日常业务逻辑开发时遇到的一些有关正则的问题记录下来，以备不时之需。</p>
-<blockquote>
-<p>正则表达式菜鸟教程： <a href="https://www.runoob.com/regexp/regexp-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/regexp/regexp-tutorial.html</a><br>正则表达式工具以及一些常用的表达式： <a href="https://c.runoob.com/front-end/854" target="_blank" rel="noopener">https://c.runoob.com/front-end/854</a></p>
+        <h2 id="公众号的设置"><a href="#公众号的设置" class="headerlink" title="公众号的设置"></a>公众号的设置</h2><h3 id="服务器配置："><a href="#服务器配置：" class="headerlink" title="服务器配置："></a>服务器配置：</h3><p>在公众号后台-开发-基本配置-服务器配置，配置好服务器的地址，这里需要先在服务器对应地址添加脚本回传<code>echostr</code>，php代码示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (isset($_GET[&quot;echostr&quot;])) &#123;</span><br><span class="line">    $echoStr &#x3D; $_GET[&quot;echostr&quot;];</span><br><span class="line">    echo $echoStr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取AccessToken的ip白名单"><a href="#获取AccessToken的ip白名单" class="headerlink" title="获取AccessToken的ip白名单"></a>获取AccessToken的ip白名单</h3><pre><code>公众号后台-设置-安全中心-ip白名单，设置能够调用获取Accesstoken的ip白名单；</code></pre><h3 id="获取关注用户信息的jsSDK安全域名"><a href="#获取关注用户信息的jsSDK安全域名" class="headerlink" title="获取关注用户信息的jsSDK安全域名"></a>获取关注用户信息的jsSDK安全域名</h3><pre><code>公众号后台-设置-公众号设置-功能设置-js接口安全域名，设置可以调用jsSDK的安全域名；</code></pre><h3 id="secret"><a href="#secret" class="headerlink" title="secret"></a>secret</h3><pre><code>公众号后台-开发-基本配置-公众号开发信息-开发者密码，生成secret；</code></pre><h2 id="关注推送"><a href="#关注推送" class="headerlink" title="关注推送"></a>关注推送</h2><blockquote>
+<p>文档地址：<a href="https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Receiving_event_pushes.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Receiving_event_pushes.html</a></p>
 </blockquote>
-<h1 id="一些常用的正则"><a href="#一些常用的正则" class="headerlink" title="一些常用的正则"></a>一些常用的正则</h1><ol>
-<li><p>匹配所有: <code>([\s\S]*)</code></p>
+<p>用户关注公众号时会给服务器推一条xml格式的关注事件消息，php代码示例：</p>
+<ol>
+<li><p>获取数据:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$postStr &#x3D; file_get_contents(&quot;php:&#x2F;&#x2F;input&quot;);</span><br><span class="line">$msg &#x3D; (array) simplexml_load_string($postStr, &#39;SimpleXMLElement&#39;, LIBXML_NOCDATA);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>匹配以xx开头，而xx不在其中：<code>(?&lt;=pattern)</code> </p>
+<li><p>根据数据类型判断是否是关注事件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if ($msg[&#39;MsgType&#39;] &#x3D;&#x3D; &#39;event&#39;) &#123;</span><br><span class="line">    $event &#x3D; strtolower($msg[&#39;Event&#39;]);</span><br><span class="line">    switch ($event) &#123;</span><br><span class="line">        case &#39;subscribe&#39;:   &#x2F;&#x2F; 关注事件</span><br><span class="line">            $gzhId &#x3D; $msg[&#39;ToUserName&#39;];</span><br><span class="line">            $openId &#x3D; $msg[&#39;FromUserName&#39;];</span><br><span class="line">            &#x2F;&#x2F; todo: 关注之后进行的行为</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>匹配以xx结尾，而xx不在其中：<code>(?=pattern)</code></p>
-</li>
-<li><p>匹配不以xx开头的：<code>(?&lt;!pattern)</code></p>
-</li>
-<li><p>匹配不以xx结尾：<code>(?!pattern)</code></p>
-</li>
-<li><p>匹配数字，字母，汉字:  <code>[A-Za-z0-9\u4e00-\u9fa5]</code></p>
-<p> <strong><em>ps:</em></strong> 在php里面的正则是: <code>[A-Za-z0-9\x{4e00}-\x{9fa5}]</code>特别注意，php里面匹配汉字需要在分隔符里面加u,如：匹配数字字母汉字1次以上:<code>#[A-Za-z0-9\x{4e00}-\x{9fa5}]{1,}#u</code></p>
+<li><p>这里回复关注事件消息不需要走发送消息的接口，直接<code>echo</code>一个xml格式的数据即可回复用户，但是只能够回复一条消息。如果想回复多条消息，可以提交异步任务给后台，后台调用发送消息的接口再进行推送。</p>
 </li>
 </ol>
-<h1 id="php里的正则表达式"><a href="#php里的正则表达式" class="headerlink" title="php里的正则表达式"></a>php里的正则表达式</h1><ol>
-<li><p>matches左右用‘#’包含起来，比如: <code>preg_match(&#39;#(foo)(bar)(baz)#&#39;, &#39;foobarbaz&#39;, $matches, PREG_OFFSET_CAPTURE);</code></p>
+<h2 id="发送消息-图片"><a href="#发送消息-图片" class="headerlink" title="发送消息/图片"></a>发送消息/图片</h2><ol>
+<li><p>获取Accesstoken：建议开发单独的获取accesstoken服务，实现AccessToken分配、保存、重新刷新的功能。注意AccessToken刷新之后之前的会失效，线上与测试环境公用一个账号时一定要注意这个问题。</p>
+<blockquote>
+<p>文档：<a href="https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Get_access_token.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Get_access_token.html</a></p>
+</blockquote>
 </li>
-<li><p>unicode编码的数据，比如：<code>\u003d</code>，在php的pattern中需要改为：<code>\x{003d}</code></p>
+<li><p>新增临时素材</p>
+<blockquote>
+<p>文档： <a href="https://developers.weixin.qq.com/doc/offiaccount/Asset_Management/New_temporary_materials.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/doc/offiaccount/Asset_Management/New_temporary_materials.html</a><br>建议临时素材的mediaId在本地做一下缓存。并且上传临时素材请求的超时时间要适当加长一点</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ch-&gt;post($url, [</span><br><span class="line">    &#39;media&#39; &#x3D;&gt; new CURLFile(realpath($mediaSource))</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在php的pattern中‘\’是pattern这个字符串的转义字符，“\”则是正则表达式的“\”，所以如果想匹配一个反斜杠“\”，就需要：<code>\\\\</code> 四个反斜杠</p>
-</li>
-<li><p>使用<code>preg_replace</code> 替换: </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">preg_replace(&quot;#(?&lt;&#x3D;[a-zA-z])*(\d+)(?&#x3D;[a-zA-Z])#&quot;, &#39;&lt;\1&gt;&#39;, &#39;aaa55555bbb&#39;);</span><br></pre></td></tr></table></figure>
-<p> 其中, \1 代表被匹配的内容, 这里会将55555替换为: &lt;55555&gt;</p>
+<li><p>回复消息/图片<br>没有获取到微信授权的公众号不能主动给用户推消息。<br>回复消息的数据在<code>json_encode</code>的时候记得加上参数：<code>JSON_UNESCAPED_UNICODE</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$message &#x3D; json_encode([</span><br><span class="line">    &quot;touser&quot; &#x3D;&gt; $openId,</span><br><span class="line">    &#39;msgtype&#39; &#x3D;&gt; &#39;image&#39;,</span><br><span class="line">    &#39;image&#39; &#x3D;&gt; [</span><br><span class="line">        &#39;media_id&#39; &#x3D;&gt; $mediaId[&#39;MediaId&#39;]</span><br><span class="line">    ]</span><br><span class="line">], JSON_UNESCAPED_UNICODE);</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
+<h3 id="文档："><a href="#文档：" class="headerlink" title="文档："></a>文档：</h3><blockquote>
+<p>公众号: <a href="https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Overview.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Overview.html</a></p>
+</blockquote>
 
       
        
